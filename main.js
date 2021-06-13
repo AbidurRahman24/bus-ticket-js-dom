@@ -1,23 +1,15 @@
 const firstClassBtn = document.getElementById('firstClassBtn')
 firstClassBtn.addEventListener('click', ()=>{
     const firstClassPlus = Number(document.getElementById('firstClassPlus').value)
-    const total = firstClassPlus +1 ;
+    const total = firstClassPlus + 1 ;
     document.getElementById('firstClassPlus').value = total
     // subtotal
     demoPractice('sub-total', total)
     // 10% vat
     sumFunction('VAT')
-
-    // const vatTotal = grandTotal / 10;
-    // document.getElementById('VAT').innerText = vatTotal;
-
     // TOtal UPDATE
     sumFunction('totalUpdate')
 })
-
-function sumFunction(id) {
-    Number(document.getElementById(id).innerText)
-}
 
 // Minus Button
 const minueBtn = document.getElementById('minusBtn')
@@ -32,11 +24,56 @@ minueBtn.addEventListener('click', ()=>{
         sumFunction('VAT')
         // TOtal UPDATE
         sumFunction('totalUpdate')
-
     }
-    
+});
+
+// economy Button
+const economyBtn = document.getElementById('economyPlus')
+economyBtn.addEventListener('click', ()=>{
+    const firstClassPlus = Number(document.getElementById('economy').value)
+    const total = firstClassPlus +1 ;
+    document.getElementById('economy').value = total
+    // sub
+    Number(document.getElementById('sub-total').innerText)
+    const grandTotal = total * 100;
+    document.getElementById('sub-total').innerText = grandTotal;
+
+    sumFunction('VAT')
+    const vatTotal = grandTotal / 10;
+    document.getElementById('VAT').innerText = vatTotal;
+    // TOtal UPDATE
+    sumFunction('totalUpdate')
+    const sum = grandTotal + vatTotal
+    document.getElementById('totalUpdate').innerText = sum
 
 })
+
+// eConomy Minus
+const eConomyBtn = document.getElementById('economyMinus')
+eConomyBtn.addEventListener('click', ()=>{
+    const firstClassPlus = Number(document.getElementById('economy').value)
+    if (firstClassPlus > 0) {
+        const total = firstClassPlus - 1 ;
+        document.getElementById('economy').value = total
+        // sub
+        Number(document.getElementById('sub-total').innerText)
+        const grandTotal = total * 100;
+        document.getElementById('sub-total').innerText = grandTotal;
+    
+        sumFunction('VAT')
+        const vatTotal = grandTotal / 10;
+        document.getElementById('VAT').innerText = vatTotal;
+        // TOtal UPDATE
+        sumFunction('totalUpdate')
+        const sum = grandTotal + vatTotal
+        document.getElementById('totalUpdate').innerText = sum;  
+    }
+})
+
+
+function sumFunction(id) {
+    Number(document.getElementById(id).innerText)
+}
 
 const demoPractice =(id, total) =>{
     Number(document.getElementById(id).innerText)
