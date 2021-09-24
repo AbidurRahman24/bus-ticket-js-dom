@@ -33,7 +33,6 @@ const economyBtn = document.getElementById('economyPlusBtn')
 economyBtn.addEventListener('click', () => {
     const economyClassPlus = Number(document.getElementById('economyClassPlus').value)
     const total = economyClassPlus + 1;
-    console.log(total);
     document.getElementById('economyClassPlus').value = total
     // sub
     Number(document.getElementById('sub-total').innerText)
@@ -51,12 +50,13 @@ economyBtn.addEventListener('click', () => {
 })
 
 // eConomy Minus
-const eConomyBtn = document.getElementById('economyMinus')
-eConomyBtn.addEventListener('click', () => {
-    const firstClassPlus = Number(document.getElementById('economy').value)
-    if (firstClassPlus > 0) {
-        const total = firstClassPlus - 1;
-        document.getElementById('economy').value = total
+const economyMinusBtn = document.getElementById('economyMinusBtn')
+economyMinusBtn.addEventListener('click', () => {
+    const economyClassPlus = Number(document.getElementById('economyClassPlus').value)
+    if (economyClassPlus > 0) {
+        const total = economyClassPlus - 1;
+        console.log(total);
+        document.getElementById('economyClassPlus').value = total
         // sub
         Number(document.getElementById('sub-total').innerText)
         const grandTotal = total * 100;
