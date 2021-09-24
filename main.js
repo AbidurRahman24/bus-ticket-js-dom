@@ -2,6 +2,7 @@ const firstClassBtn = document.getElementById('firstClassBtn')
 firstClassBtn.addEventListener('click', () => {
     const firstClassPlus = Number(document.getElementById('firstClassPlus').value)
     const total = firstClassPlus + 1;
+    console.log(total);
     document.getElementById('firstClassPlus').value = total
     // subtotal
     demoPractice('sub-total', total)
@@ -28,11 +29,12 @@ minueBtn.addEventListener('click', () => {
 });
 
 // economy Button
-const economyBtn = document.getElementById('economyPlus')
+const economyBtn = document.getElementById('economyPlusBtn')
 economyBtn.addEventListener('click', () => {
-    const firstClassPlus = Number(document.getElementById('economy').value)
-    const total = firstClassPlus + 1;
-    document.getElemefntById('economy').value = total
+    const economyClassPlus = Number(document.getElementById('economyClassPlus').value)
+    const total = economyClassPlus + 1;
+    console.log(total);
+    document.getElementById('economyClassPlus').value = total
     // sub
     Number(document.getElementById('sub-total').innerText)
     const grandTotal = total * 100;
@@ -86,9 +88,6 @@ const demoPractice = (id, total) => {
     const sum = grandTotal + vatTotal
     document.getElementById('totalUpdate').innerText = sum
 }
-
-
-
 
 
 
